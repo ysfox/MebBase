@@ -1,0 +1,6 @@
+framework module MebBase {
+  umbrella header "MebBase-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "MebBase",
+  "version": "0.1.0",
+  "summary": "A short description of MebBase.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ysfox/MebBase",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ysfox": "327302008@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/ysfox/MebBase.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MebBase/Classes/**/*"
+}
