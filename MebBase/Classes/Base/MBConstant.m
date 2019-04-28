@@ -15,18 +15,6 @@
 
 #import "MBConstant.h"
 
-//字符串常量内部定义
-#define CFDefineConstStr(name) \
-NSString * const name = @#name;
-
-//字符串常量内部定义(带自定义值)
-#define CFDefineConstStrValue(name,value) \
-NSString * const name = @#value;
-
-//数字常量内部定义
-#define CFDefineConstNum(name,num) \
-int  const (name) = (num);
-
 /* +++++++++++++++++++++++++++++++++++++ 字符串常量 +++++++++++++++++++++++++++++++++++++++++++ */
 
 /** 用户登录通知 */

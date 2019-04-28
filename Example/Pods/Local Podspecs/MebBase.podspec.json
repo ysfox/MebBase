@@ -1,8 +1,8 @@
 {
   "name": "MebBase",
   "version": "0.1.0",
-  "summary": "A short description of MebBase.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "MebBase",
+  "description": "MebBase contain some base component.",
   "homepage": "https://github.com/ysfox/MebBase",
   "license": {
     "type": "MIT",
@@ -18,5 +18,18 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "MebBase/Classes/**/*"
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "MebBase/Classes/Base/**/*"
+    },
+    {
+      "name": "Category",
+      "source_files": "MebBase/Classes/Category/**/*"
+    },
+    {
+      "name": "Utils",
+      "source_files": "MebBase/Classes/Utils/**/*"
+    }
+  ]
 }
