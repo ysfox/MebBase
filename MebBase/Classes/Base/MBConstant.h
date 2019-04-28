@@ -13,6 +13,8 @@
 //                 \F\      Ysfox **
 //**********************************
 
+#import <Foundation/Foundation.h>
+
 //字符串常量开放声明
 #define CFDeclareConstStr(name) \
 extern NSString *const name;
