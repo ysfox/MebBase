@@ -76,6 +76,17 @@ static NSString *const kAssetImageSizeFormatString = @"{%.0f,%.0f}";
     return image;
 }
 
+/**
+ *  返回原始模式的图片
+ *
+ *  @param name 图片的名称
+ *
+ *  @return 返回原始模式的图片
+ */
++ (UIImage *)originImageWithName:(NSString *)name {
+    return [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
 
 /**
  *  返回中心拉伸的图片
