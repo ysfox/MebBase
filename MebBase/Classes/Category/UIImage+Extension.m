@@ -739,6 +739,17 @@ static NSString *const kAssetImageSizeFormatString = @"{%.0f,%.0f}";
 }
 
 
+/**
+ * 获取应用的StoryBoard的LaunchImage图片
+ *
+ * @note 通过LaunchScreen.StoryBoard加载的本地图片 只需要两张本地图片iPhone 7和 7 plus尺寸的图取名为LaunchImage@2x.png 和LaunchImage@3x.png
+ * @return 返回StoryBoard的LaunchImage，可能返回为空
+ */
++ (UIImage *)getStoryBoardLaunchImage{
+    UIViewController *viewController = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateViewControllerWithIdentifier:@"LaunchScreen"];
+    UIImageView * imageView=viewController.view.subviews[0];
+    return imageView.image;
+}
 
 /**
  *  当应用用IB方式做LaunchImage的时候，调用此方法获取对应设备的LaunchImage图片
@@ -748,6 +759,32 @@ static NSString *const kAssetImageSizeFormatString = @"{%.0f,%.0f}";
 + (UIImage *)interfaceBuilderBasedLaunchImage{
     UIInterfaceOrientation statusBarOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     return [UIImage interfaceBuilderBasedLaunchImageWithOrientation:statusBarOrientation useSystemCache:YES];
+}
+
+
+/**
+ * 获取应用的Asset的LaunchImage图片
+ *
+ * @note 需要四张本地图片 放入LaunchImage即可,不包括横屏和竖屏
+ * @return 返回Asset的LaunchImage，可能返回为空
+ */
++ (UIImage *)getAssetLaunchImage{
+    
+    NSString *viewOrientation = @"Portrait";
+//    if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+//        viewOrientation = @"Landscape";
+//    }
+    NSString *launchImageName = nil;
+    NSArray* imagesDict = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
+    CGSize viewSize = [UIApplication sharedApplication].keyWindow.bounds.size;
+    for (NSDictionary* dict in imagesDict){
+        CGSize imageSize = CGSizeFromString(dict[@"UILaunchImageSize"]);
+        if (CGSizeEqualToSize(imageSize, viewSize) && [viewOrientation isEqualToString:dict[@"UILaunchImageOrientation"]])
+        {
+            launchImageName = dict[@"UILaunchImageName"];
+        }
+    }
+    return [UIImage imageNamed:launchImageName];
 }
 
 
