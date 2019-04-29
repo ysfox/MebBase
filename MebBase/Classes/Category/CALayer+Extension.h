@@ -41,6 +41,14 @@
  */
 -(void)cornerLayerWithRadius:(CGFloat)radius;
 
+
+/**
+ 设置layer的边框的颜色，便于在xib中使用
+
+ @param color 设置的边框的颜色
+ */
+-(void)setBorderLayerColor:(UIColor *)color;
+
 /**
  *  给图层添加边线
  */
