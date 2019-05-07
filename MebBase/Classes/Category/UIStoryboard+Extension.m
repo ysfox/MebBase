@@ -38,7 +38,8 @@
         bundle = [NSBundle bundleForClass:NSClassFromString(className)];
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:name bundle:bundle];
-    [UIApplication sharedApplication].keyWindow.rootViewController = storyboard.instantiateInitialViewController;
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    window.rootViewController = storyboard.instantiateInitialViewController;
 }
 
 
