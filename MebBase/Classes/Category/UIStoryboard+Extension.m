@@ -30,12 +30,12 @@
  显示指定boundle中的第一个控制器窗口
 
  @param name storyborad的名称
- @param bundleName boundle名
+ @param className 指定类字符串，用于获取指定类所在包名
  */
-+(void)showInitialVCWithName:(NSString *)name fromBundle:(NSString *)bundleName{
++(void)showInitialVCWithName:(NSString *)name fromBundle:(NSString *)className{
     NSBundle *bundle = nil;
-    if(bundleName){
-        bundle = [NSBundle bundleForClass:NSClassFromString(bundleName)];
+    if(className){
+        bundle = [NSBundle bundleForClass:NSClassFromString(className)];
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:name bundle:bundle];
     [UIApplication sharedApplication].keyWindow.rootViewController = storyboard.instantiateInitialViewController;
@@ -59,13 +59,13 @@
  从指定的bundle中初始化指定名称storybard的入口控制器
 
  @param name storyboard名称
- @param bundleName bundle名称
+ @param className 指定类字符串，用于获取指定类所在包名
  @return 返回初始化的是对象
  */
-+(id)initialVCWithName:(NSString *)name fromBundle:(NSString *)bundleName{
++(id)initialVCWithName:(NSString *)name fromBundle:(NSString *)className{
     NSBundle *bundle = nil;
-    if(bundleName){
-        bundle = [NSBundle bundleForClass:NSClassFromString(bundleName)];
+    if(className){
+        bundle = [NSBundle bundleForClass:NSClassFromString(className)];
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:name bundle:bundle];
     return [storyboard instantiateInitialViewController];
@@ -91,17 +91,17 @@
 /**
  从指定的bundle中初始化指定的storyboard中指定标示的控制器
 
- @param bundleName 包名
+ @param className 指定类字符串，用于获取指定类所在包名
  @param boardName storyboar的名
  @param indentifier vc标示
  @return 返回实例化对象
  */
-+(id)initialFromBundle:(NSString *)bundleName
++(id)initialFromBundle:(NSString *)className
         storyBoardName:(NSString *)boardName
           indentifier:(NSString *)indentifier {
     NSBundle *bundle = nil;
-    if(bundleName){
-        bundle = [NSBundle bundleForClass:NSClassFromString(bundleName)];
+    if(className){
+        bundle = [NSBundle bundleForClass:NSClassFromString(className)];
     }
     UIStoryboard *storyboard=[UIStoryboard storyboardWithName:boardName bundle:bundle];
     return [storyboard instantiateViewControllerWithIdentifier:indentifier];
