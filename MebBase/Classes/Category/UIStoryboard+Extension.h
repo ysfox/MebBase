@@ -23,6 +23,15 @@
  */
 +(void)showInitialVCWithName:(NSString *)name;
 
+
+/**
+ 显示指定boundle中的第一个控制器窗口
+ 
+ @param name storyborad的名称
+ @param bundleName boundle名
+ */
++(void)showInitialVCWithName:(NSString *)name fromBundle:(NSString *)bundleName;
+
 /**
  *  初始化storyboard
  *
@@ -32,6 +41,15 @@
  */
 +(id)initialVCWithName:(NSString *)name;
 
+
+/**
+ 从指定的bundle中初始化指定名称storybard的入口控制器
+ 
+ @param name storyboard名称
+ @param bundleName bundle名称
+ @return 返回初始化的是对象
+ */
++(id)initialVCWithName:(NSString *)name fromBundle:(NSString *)bundleName;
 
 
 /**
@@ -43,5 +61,18 @@
  *  @return 返回实例化对象
  */
 +(id)initialVCWithName:(NSString *)name identifier:(NSString *)indentifier;
+
+
+/**
+ 从指定的bundle中初始化指定的storyboard中指定标示的控制器
+ 
+ @param bundleName 包名
+ @param boardName storyboar的名
+ @param indentifier vc标示
+ @return 返回实例化对象
+ */
++(id)initialFromBundle:(NSString *)bundleName
+        storyBoardName:(NSString *)boardName
+           indentifier:(NSString *)indentifier;
 
 @end
