@@ -759,6 +759,38 @@
     }
     return num % 10;
 }
+
+
+/**
+ 获取指定长度的随机字符串
+ 
+ @param len 指定长度
+ @return 返回随机字符串
+ */
++ (NSString *)randomStringWithLength:(NSInteger)len{
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    for (NSInteger i = 0; i < len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((uint32_t)[letters length])]];
+    }
+    return randomString;
+}
+
+
+/**
+ 获取指定长度的随机数字字符串
+ 
+ @param len 指定长度
+ @return 返回随机数字字符串
+ */
++ (NSString *)randomNumberStringWithLength:(NSInteger)len{
+    NSString *letters = @"0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    for (NSInteger i = 0; i < len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((uint32_t)[letters length])]];
+    }
+    return randomString;
+}
     
 #pragma mark - 沙盒路径拼接
 /**

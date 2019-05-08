@@ -311,6 +311,24 @@
  *  @return 返回获取到的数字
  */
 - (NSUInteger)numberIndex:(NSUInteger)index;
+
+
+/**
+ 获取指定长度的随机字符串
+
+ @param len 指定长度
+ @return 返回随机字符串
+ */
++ (NSString *)randomStringWithLength:(NSInteger)len;
+
+
+/**
+  获取指定长度的随机数字字符串
+
+ @param len 指定长度
+ @return 返回随机数字字符串
+ */
++ (NSString *)randomNumberStringWithLength:(NSInteger)len;
     
     
 #pragma mark - 沙盒路径拼接
