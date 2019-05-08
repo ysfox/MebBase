@@ -1,11 +1,11 @@
 PODS:
-  - MebBase (0.1.8):
-    - MebBase/Base (= 0.1.8)
-    - MebBase/Category (= 0.1.8)
-    - MebBase/Utils (= 0.1.8)
-  - MebBase/Base (0.1.8)
-  - MebBase/Category (0.1.8)
-  - MebBase/Utils (0.1.8)
+  - MebBase (0.1.9):
+    - MebBase/Base (= 0.1.9)
+    - MebBase/Category (= 0.1.9)
+    - MebBase/Utils (= 0.1.9)
+  - MebBase/Base (0.1.9)
+  - MebBase/Category (0.1.9)
+  - MebBase/Utils (0.1.9)
 
 DEPENDENCIES:
   - MebBase (from `../`)
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MebBase: f1f4c78ee0d29477df36bf0661b93f2034d73ba2
+  MebBase: caa762ea2d39b4f1ca14ef59c49e6b67d49198de
 
 PODFILE CHECKSUM: 9495a22662c56fff8121cf4c1978b40d1dd59607
 

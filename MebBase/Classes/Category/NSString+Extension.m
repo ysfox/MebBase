@@ -365,6 +365,46 @@
     CCHmac(kCCHmacAlgSHA1, keyData.bytes, keyData.length, messageData.bytes, messageData.length, mutableData.mutableBytes);
     return [self stringFromBytes:(unsigned char *)mutableData.bytes length:mutableData.length];
 }
+
+/**
+ *  hmacSha1加盐加密
+ *
+ *  @param key 加盐关键字
+ *
+ *  @return 返回加密后的字符串
+ */
+- (NSString *)hmacSha1WithKey:(NSString *)key{
+    const char *cKey  = [key cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *cData = [self cStringUsingEncoding:NSASCIIStringEncoding];
+    unsigned char cHMAC[CC_SHA1_DIGEST_LENGTH];
+    CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+    NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
+    NSString *hash = [self convertDataToHexStr:HMAC];
+    return hash;
+}
+
+//NSData -> 16进制
+- (NSString *)convertDataToHexStr:(NSData *)data {
+    if (!data || [data length] == 0) {
+        return @"";
+    }
+    NSMutableString *string = [[NSMutableString alloc] initWithCapacity:[data length]];
+    
+    [data enumerateByteRangesUsingBlock:^(const void *bytes, NSRange byteRange, BOOL *stop) {
+        unsigned char *dataBytes = (unsigned char*)bytes;
+        for (NSInteger i = 0; i < byteRange.length; i++) {
+            NSString *hexStr = [NSString stringWithFormat:@"%x", (dataBytes[i]) & 0xff];
+            if ([hexStr length] == 2) {
+                [string appendString:hexStr];
+            } else {
+                [string appendFormat:@"0%@", hexStr];
+            }
+        }
+    }];
+    
+    return string;
+}
+
     
 /**
  *  sha256加盐加密

@@ -159,6 +159,16 @@
  *  @return 返回加密后的字符串
  */
 - (NSString *)sha1StringWithKey:(NSString *)key;
+
+
+/**
+ *  hmacSha1加盐加密
+ *
+ *  @param key 加盐关键字
+ *
+ *  @return 返回加密后的字符串
+ */
+- (NSString *)hmacSha1WithKey:(NSString *)key;
     
 /**
  *  sha256加盐加密
